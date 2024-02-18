@@ -2,8 +2,6 @@ const sidebar = document.getElementById("sidebar");
 const right_container = document.getElementById("right-container");
 const divbar = document.getElementById("divbar");
 
-// var selected_entry;
-
 var posX, initPerc;
 
 function clamp(value, min, max) {
@@ -12,7 +10,6 @@ function clamp(value, min, max) {
     } else if ( value < min ) {
         value = min;
     }
-
     return value;
 }
 

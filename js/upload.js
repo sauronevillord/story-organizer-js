@@ -50,42 +50,36 @@ window.onload = () => {
 }
 
 
-function loadProject (project) {
-    let i = 0;
+function loadProject(project) {
     current_project = project;
     proj_name.value = current_project.project_name;
 
-    current_project.categories.forEach(category => {
+
+    current_project.categories.forEach((category, i) => {
         let det = document.createElement("details");
         let sum = document.createElement("summary");
 
-        det.id = "cat-"+i;
-        det.class = "category";
+        det.id = "cat-" + i;
+        det.className = "category"; 
         sum.textContent = category.title;
 
         det.appendChild(sum);
 
-        let j = 0;
-
-        category.entries.forEach(entry => {
+        category.entries.forEach((entry, j) => {
             const p = document.createElement("p");
 
             p.className = "entry";
             p.textContent = entry.name;
 
-            p.onclick = () => {
-                console.log( i, j );
-                selectEntry ( i, j );
+            p.onclick = (event) => {
+                console.log(i, j);
+                selectEntry(i, j);
             };
 
             det.appendChild(p);
-
-            j++;
         });
 
         sidebar.appendChild(det);
-
-        i++;
     });
 }
 
