@@ -1,5 +1,6 @@
 const sidebar = document.getElementById("sidebar");
 const right_container = document.getElementById("right-container");
+const container_flex = document.getElementById("container-flex");
 const divbar = document.getElementById("divbar");
 
 var posX, initPerc;
@@ -43,19 +44,10 @@ function releaseElement() {
 
 function selectEntry ( category_pos, entry_pos ) {
     right_container.innerHTML = '';
-
     let category = current_project.categories[category_pos];
-
     console.log(category);
-    
     let entry = category.entries[entry_pos];
-
     createCard(entry);
-
-
-    
-
-
 }
 
 function createCard(entry){
@@ -64,7 +56,12 @@ function createCard(entry){
     let cardContent = document.createElement('div');
     cardContent.classList.add('card__content');
     let cardTitle = document.createElement('h3');
-    cardTitle.textContent = entry.name;
+    if(entry.name != null){
+        cardTitle.textContent = entry.name;
+    } else{
+        cardTitle.textContent = "Nuovo Personaggio";
+    }
+    
     let image = document.createElement('img');
     image.src="./resources/images/how-to-draw-a-cartoon-monster-step-6-removebg-preview.png";
     let btnChangeImg = document.createElement('input');
@@ -81,5 +78,10 @@ function createCard(entry){
     cardContent.appendChild(textarea);
     card.appendChild(cardContent);
     right_container.appendChild(card);
+    
+    let bottone = document.createElement('button');
+    bottone.textContent = '+';
+    bottone.addEventListener('click', createCard);
+    cardContent.appendChild(bottone);
 
 }
