@@ -50,20 +50,17 @@ function selectEntry ( category_pos, entry_pos ) {
     createCard(entry);
 }
 
-function createCard(entry){
+function createEmptyCard() {
+    createCard(/*cose di default*/);
+}
+
+function createCard() {
     let card = document.createElement('div');
-    card.classList.add('card');
-    let cardContent = document.createElement('div');
-    cardContent.classList.add('card__content');
-    let cardTitle = document.createElement('h3');
-    if(entry.name != null){
-        cardTitle.textContent = entry.name;
-    } else{
-        cardTitle.textContent = "Nuovo Personaggio";
-    }
+    card.className = 'card';
     
     let image = document.createElement('img');
     image.src="./resources/images/how-to-draw-a-cartoon-monster-step-6-removebg-preview.png";
+    image.className = 'card-content-margin';
     let btnChangeImg = document.createElement('input');
     btnChangeImg.type = "file";
     btnChangeImg.accept = "image/png, image/jpeg";
@@ -72,16 +69,16 @@ function createCard(entry){
     }
     let textarea = document.createElement('textarea');
     textarea.placeholder = "Inserisci il testo qui...";
-    cardContent.appendChild(cardTitle);
-    cardContent.appendChild(image);
-    cardContent.appendChild(btnChangeImg);
-    cardContent.appendChild(textarea);
-    card.appendChild(cardContent);
+    textarea.className = 'card-content-margin';
+    card.appendChild(image);
+    card.appendChild(btnChangeImg);
+    card.appendChild(textarea);
     right_container.appendChild(card);
     
-    let bottone = document.createElement('button');
-    bottone.textContent = '+';
-    bottone.addEventListener('click', createCard);
-    cardContent.appendChild(bottone);
+    let button = document.createElement('button');
+    button.className = 'primary card-content-margin';
+    button.textContent = '+';
+    button.addEventListener('click', createCard);
+    card.appendChild(button);
 
 }
