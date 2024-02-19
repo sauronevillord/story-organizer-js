@@ -5,6 +5,14 @@ const divbar = document.getElementById("divbar");
 
 var posX, initPerc;
 
+window.onload = () => { // MAIN
+    window.setInterval(10 * 1000, saveProject);
+}
+
+function saveProject() {
+    console.log("Marcouli te tocca fallo!!");
+}
+
 function clamp(value, min, max) {
     if ( value > max ) {
         value = max;
@@ -54,7 +62,7 @@ function createEmptyCard() {
     createCard(/*cose di default*/);
 }
 
-function createCard() {
+function createCard(/* parametri per  */) {
     let card = document.createElement('div');
     card.className = 'card';
     
