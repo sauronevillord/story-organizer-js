@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="js/widgets.js"></script>
+    <script defer src="js/index.js"></script>
+    <script defer src="js/upload.js"></script>
+    <title>Story Organizer</title>
+</head>
+<body>
+
+    <div id="main-content">
+
+        <div id="sidebar">
+            <form>
+                <label for="proj-name">Project Name</label>
+                <input type="text", name="proj-name", id="proj-name" placeholder="SO_project">
+            </form>
+            <button onclick="downloadProject()">Save File</button>
+
+        </div>
+
+        <div id="divbar"><p class="decoration">||</p></div>
+            <div id="right-container" class="container-flex">
+
+
+            </div>
+
+    </div>
+
+    <!-- <form method="post" enctype="multipart/form-data">
+        <label for="file">Load Project</label>
+        <input id="file" name="file" type="file"/>
+    </form> -->
+</body>
+</html>
